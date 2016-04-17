@@ -1,4 +1,4 @@
-import isUndefined from './utils/isUndefined';
+import isUndefined from 'swsutils/src/isUndefined';
 
 export default class {
   constructor(date) {

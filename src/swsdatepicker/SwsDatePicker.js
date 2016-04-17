@@ -2,15 +2,15 @@ import m from 'mithril';
 import SwsDate from './SwsDate';
 import SwsCalendar from './SwsCalendar';
 import weekNames from './weekNames';
-import isUndefined from './utils/isUndefined';
-import isEmptyStr from './utils/isEmptyStr';
+import isUndefined from 'swsutils/src/isUndefined';
+import isEmpty from 'swsutils/src/isEmpty';
 
 // view model
 const vm = {
   init: (opts) => {
     let now = new Date();
     let _initVal = '';
-    if (!isUndefined(opts.initialValue) && !isEmptyStr(opts.initialValue)) {
+    if (!isUndefined(opts.initialValue) && !isEmpty(opts.initialValue)) {
       _initVal = opts.initialValue;
       now = new Date(_initVal);
     }
@@ -34,7 +34,7 @@ const vm = {
   },
   activate: () => {
     vm.isActive(true);
-    if (!isEmptyStr(vm.value())) {
+    if (!isEmpty(vm.value())) {
       vm.selectedDate(new SwsDate(new Date(vm.value())));
     }
   },
